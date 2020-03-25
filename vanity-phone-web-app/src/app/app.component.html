@@ -1,0 +1,21 @@
+<div *ngIf="showWarningMessage">
+  <span style="color: maroon">Please submit a seven or ten digit phone number</span>
+</div>
+<input [(ngModel)]="userEnteredPhoneNumber" />
+
+
+<button (click)="submitNewNumberIfValid()">Submit</button>
+<button (click)="getNextResults()" [disabled]="totalCount <= numbers.length">Get Next Numbers</button>
+
+<div *ngIf="totalCount">
+  <span>Total Possible Combinations: {{ totalCount }}</span>
+</div>
+
+
+<div class="numbers-display">
+  <div *ngFor="let phoneNumber of numbers">
+    <span>{{ phoneNumber }}</span>
+  </div>
+</div>
+
+<button (click)="getNextResults()" [disabled]="totalCount <= numbers.length">Get Next Numbers</button>
